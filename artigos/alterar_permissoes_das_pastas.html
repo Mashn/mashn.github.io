@@ -22,20 +22,20 @@
 <hr class="hrblog"/>
 
 <p>Ligue seu PC e logue com um "usuário padrão";<br/>
- <br>abra um Terminal (logue como Root no Terminal) e execute o comando:</p>
+ <br>Abra um Terminal (logue como Root no Terminal) e execute o comando:</p>
  
-<p><strong>$</strong> fdisk -l</p>
+<p><strong>$ fdisk -l</strong></p>
 
   
 <p>(ele exibirá as partições/HD's - então vc confere se a partição do Windows é sda1, sda2 ou sda...)</p>
 
   
-<p>### Suponhamos que seje "sda4", montamos essa partição em /mnt:<br/>
-mount /dev/sda4 /mnt</p>
+<p>Suponhamos que seje "sda4", montamos essa partição em /mnt:<br/>
+<p><strong>mount /dev/sda4 /mnt</p>
 
   
-<p>### Montada a partição em /mnt, damos permissões totais á todos sobre essa pasta:<br/>
-chmod 777 /mnt<br/>
+<p>Montada a partição em /mnt, damos permissões totais á todos sobre essa pasta:<br/>
+<p><strong>chmod 777 /mnt</strong></p>
 
   
 <p>Agora provavelmente vc conseguirá ter acesso aos arquivos dentro da pasta /mnt.</p>
@@ -45,7 +45,7 @@ chmod 777 /mnt<br/>
 
   
 <p>------------------</p>
-<p># Ao invés do processo descrito acima, vc pode abrir um Terminal e executar o comando:<br/>
+<p>Ao invés do processo descrito acima, vc pode abrir um Terminal e executar o comando:<br/>
   sudo nautilus.</p>
 
   
