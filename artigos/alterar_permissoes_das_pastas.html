@@ -1,0 +1,21 @@
+### Ligue seu PC e logue com um "usuário padrão";
+
+### abra um Terminal (logue como Root no Terminal) e execute o comando:
+fdisk -l
+
+(ele exibirá as partições/HD's - então vc confere se a partição do Windows é sda1, sda2 ou sda...)
+
+### Suponhamos que seje "sda4", montamos essa partição em /mnt:
+mount /dev/sda4 /mnt
+
+### Montada a partição em /mnt, damos permissões totais á todos sobre essa pasta:
+chmod 777 /mnt
+
+Agora provavelmente vc conseguirá ter acesso aos arquivos dentro da pasta /mnt.
+
+No Terminal, se não souber a senha do root, use o "sudo" antes de cada comando.
+
+------------------
+# Ao invés do processo descrito acima, vc pode abrir um Terminal e executar o comando:
+sudo nautilus
+(assim vc abre o Nautilus com acesso liberado)~
