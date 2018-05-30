@@ -1,0 +1,41 @@
+/*
+© Criado por Jefferson Rocha .
+Se for utilizar mantenha os créditos.
+*/
+
+
+/*
+@font-face{
+        font-family: IBMPlexSerif-Light;
+        src: url('fonts/IBMPlexSerif-Light.ttf');
+}
+@font-face{
+        font-family: Lato-Light;
+        src: url('fonts/Lato-Light.ttf');
+}
+
+@font-face{
+        font-family: Times-New.Roman;
+        src: url('fonts/Times-New.Roman.ttf');
+}
+*/
+
+body {background-color: white;font-size: 1.3em; font-family: ;line-height: 1.5em;margin: 2em auto;max-width: 40em;color: #333; font-family: arial;}
+h1{font-size: 2.3em;color: #333;}
+footer{margin-top: 20%; font-size: 1.0em; text-align: center; color: gray;}
+hr{border: 1px dashed; color: #333;}
+.hrblog{margin-bottom: 6%;}
+.hrhowto{margin-top: 7%; margin-bottom: 7%;}
+#copyright{font-size: 1.0em;}
+footer ul{list-style: none;}
+footer li{display: inline-block;}
+/*------LINKS DO MENU------*/
+nav{font-size: 1.3em;margin-bottom: 6%;}
+nav ul{list-style: none;margin: 0 -15px;padding: 0;}
+nav li{display: inline-block;padding: 10px 15px;}
+/*-----------LINKS------------*/
+a:link{padding: 1px;}
+a:visited{color: #0000FF;}
+a:hover{color: #7b33ff;transition: 0.2s;}
+.photo{float: left;margin-right: 15px;}
+.descricao{padding-bottom: 30px;}
