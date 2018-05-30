@@ -5,30 +5,42 @@
 <body>
   
 <h3><a href="../index.html">← Voltar</a></h3>
+  
+  
+  
 <h2>Como alterar permissões das pastas</h2>
 <h3>Data: 30/05/2018</h3>
-<hr class="artigos"/>
+<hr class="hrblog"/>
 
 <p>### Ligue seu PC e logue com um "usuário padrão";<br/>
 
+  
 ### abra um Terminal (logue como Root no Terminal) e execute o comando:<br/>
 fdisk -l</p>
 
+  
 <p>(ele exibirá as partições/HD's - então vc confere se a partição do Windows é sda1, sda2 ou sda...)</p>
 
+  
 <p>### Suponhamos que seje "sda4", montamos essa partição em /mnt:<br/>
 mount /dev/sda4 /mnt</p>
 
+  
 <p>### Montada a partição em /mnt, damos permissões totais á todos sobre essa pasta:<br/>
 chmod 777 /mnt<br/>
 
+  
 <p>Agora provavelmente vc conseguirá ter acesso aos arquivos dentro da pasta /mnt.</p>
 
+  
 <p>No Terminal, se não souber a senha do root, use o "sudo" antes de cada comando.</p>
 
-<p>------------------
-# Ao invés do processo descrito acima, vc pode abrir um Terminal e executar o comando:
-sudo nautilus
-(assim vc abre o Nautilus com acesso liberado)~</p>
+  
+<p>------------------</p>
+<p># Ao invés do processo descrito acima, vc pode abrir um Terminal e executar o comando:<br/>
+  sudo nautilus.</p>
+
+  
+<p>(assim vc abre o Nautilus com acesso liberado)~</p>
 </body>
 </html>
