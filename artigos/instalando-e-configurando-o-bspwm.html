@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta
+charset="utf-8"><meta
+name="viewport" content="width=device-width, initial-scale=1"><title>Mashn</title><style type="text/css">body{margin:40px
+auto;max-width:650px;line-height:1.6;font-size:18px;color:#444;padding:0
+10px}h1,h2,h3{line-height:1.2}</style></head>
+<body>
+
+<h3><a href="../index.html">← Voltar</a></h3>
+
+
+
+<h2>Instalando e configurando o bspwm</h2>
+<h3>Data: 15/06/2018</h3>
+<hr class="hrblog"/>
+
+<p>Bspwm é um gerenciador de janelas do tipo tiling. Na minha opinião, um dos melhores WM.<br>
+Sua configuração é simples, sem nenhuma complicação. Este tutorial assume que você já tem o X11 instalado.</p>
+<p>Iremos utilizar os seguintes pacotes para deixá-lo funcional:</p>
+<ul>
+<li>bspwm</li>
+<li>sxhkd</li>
+<li>xsetroot</li>
+<li>st <em>(ou qualquer outro terminal)</em></li>
+</ul>
+<p>Vou me basear na distribuição Void Linux para descrever os passos, já que é a distro que uso.</p>
+<p><strong>1- Instalando os pacotes necessários:</strong></p>
+<pre><code># xbps-install bspwm sxhkd xsetroot st
+</code></pre>
+<p><strong>2- Copiando os arquivos de configuração.</strong><br>
+Se você não tem o diretório .config já criado, agora é hora de criá-lo. Tenha certeza de não estar como root nesta parte. Nós também iremos copiar as configs de exemplo do bspwm e sxhkd.</p>
+<pre><code>mkdir -p ~/.config/{bspwm,sxhkd}
+cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+</code></pre>
+<p>Agora o bspwm já está instalado e pronto para uso, mas antes, vamos apenas fazer uns pequenos ajustes.</p>
+<p><strong>3- Entendendo como funciona sua config:</strong></p>
+<blockquote>
+<p>#! /bin/sh</p>
+<p>sxhkd &amp;<br>
+<em>(Os serviços que quiser que inicie junto com o WM, podem ser incluídos aqui.)</em></p>
+<p>bspc monitor -d I II III IV V VI VII VIII IX X<br>
+<em>(O nome das workspaces, pode renomear como quiser cada um deles)</em></p>
+<p>bspc config border_width         2<br>
+bspc config window_gap          12<br>
+bspc config split_ratio          0.52<br>
+bspc config borderless_monocle true<br>
+bspc config gapless_monocle      true<br>
+<em>(Aqui vem as configurações do próprio WM.)</em></p>
+<p>bspc rule -a Gimp desktop=’^8’ state=floating follow=on<br>
+bspc rule -a Chromium desktop=’^2’<br>
+bspc rule -a mplayer2 state=floating bspc rule -a<br>
+<a href="http://Kupfer.py">Kupfer.py</a> focus=on bspc rule -a Screenkey manage=off<br>
+<em>(Regras para as janelas. É aqui que se define em qual workspace a janela será aberta, e o comportamento da mesma.)</em></p>
+</blockquote>
+<p>Podemos adicionar algumas configurações extras, como:</p>
+<blockquote>
+<p>bspc config focus_follows_pointer   true<br>
+<em>(O foco da janela segue o cursor.)</em></p>
+<p>bspc config normal_border_color     "#528588"<br>
+bspc config focused_border_color    "#dee3e0"<br>
+bspc config presel_feedback_color   “#2c3939”<br>
+<em>(Cores.)</em></p>
+</blockquote>
+<p><strong>4- Finalizando.</strong><br>
+Alguns WM, incluindo o bspwm, não inicia o cursor corretamente. Para resolver isso, faça com que o xsetroot inicie junto com o bspwm, como na seguinte linha:</p>
+<blockquote>
+<p>xsetroot -cursor_name left_ptr &amp;</p>
+</blockquote>
+<p>No arquivo sxhkdrc, temos a seguinte configuração:</p>
+<blockquote>
+<p>super + Return<br>
+urxvt</p>
+</blockquote>
+<p>Como podem ver, super + Return inicia o terminal, que no caso é o urxvt-unicode. Podemos mudar para o terminal que instalamos, o st.</p>
+<blockquote>
+<p>super + Return<br>
+st</p>
+</blockquote>
+<p>E para finalizar, adicione esta linha no arquivo ~/.xinitrc</p>
+<blockquote>
+<p>exec bspwm</p>
+</blockquote>
+<p>Para mais detalhes:<br>
+<a href="https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies">https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies</a><br>
+<a href="https://wiki.archlinux.org/index.php/Bspwm">https://wiki.archlinux.org/index.php/Bspwm</a><br>
+<a href="https://wiki.voidlinux.eu/Bspwm">https://wiki.voidlinux.eu/Bspwm</a><br>
+<a href="https://www.reddit.com/r/bspwm/">https://www.reddit.com/r/bspwm/</a></p>
+
+</body>
+</html>
