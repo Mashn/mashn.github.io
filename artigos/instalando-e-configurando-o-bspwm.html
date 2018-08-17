@@ -74,10 +74,12 @@ bspc config presel_feedback_color   “#2c3939”<br>
 <strong>4- Regras.</strong><br />
 <br />
 As regras podem ser confusas para alguns, então irei explicar seu funcionamento.<br />
-Para definir uma regra para uma janela, você precisa saber o nome da sua classe, para descobrir isso, podemos usar o pacote xprop: &gt; xprop | awk ‘/WM_CLASS/{print $4}’</p>
+Para definir uma regra para uma janela, você precisa saber o nome da sua classe, para descobrir isso, podemos usar o pacote xprop:</p>
+<blockquote> xprop | awk ‘/WM_CLASS/{print $4}’</blockquote>
 <p>Após rodar o comando, clique na janela que deseja saber a classe.</p>
-<p>Tendo o nome da sua classe, podemos começar a criar nossa regra. Vamos pegar o terminal st de exemplo: &gt; bspc rule -a st-256color desktop=‘^1’</p>
-<p>No exemplo acima, o terminal st irá abrir no desktop “1”.<br />
+<p>Tendo o nome da sua classe, podemos começar a criar nossa regra. Vamos pegar o terminal st de exemplo:</p>
+<blockquote>bspc rule -a st-256color desktop=‘^1’</blockquote>
+<p>No exemplo acima, o terminal st irá abrir no desktop <strong>1</strong>.<br />
 Vamos continuar…<br />
 <blockquote>bspc rule -a st-256color desktop=‘^1’ follow=on focus=on</blockquote>
 <p>Uma coisa interessante do bspwm, é este “follow=on”, que se você estiver em um desktop diferente do <strong>1</strong>, ela irá te levar até o <strong>1</strong>. Já o “focus=on”, irá focar na janela, caso tenha várias janelas abertas no mesmo desktop.</p>
