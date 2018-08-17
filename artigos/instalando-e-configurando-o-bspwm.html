@@ -27,6 +27,8 @@ Sua configuração é simples, sem nenhuma complicação. Este tutorial assume q
 <li>st <em>(ou qualquer outro terminal)</em></li>
 </ul>
 <p>Vou me basear na distribuição Void Linux para descrever os passos, já que é a distro que uso.</p>
+<p><br />
+    
 <p><strong>1- Instalando os pacotes necessários:</strong></p>
 <pre><code># xbps-install bspwm sxhkd xsetroot st
 </code></pre>
@@ -75,7 +77,7 @@ bspc config presel_feedback_color   “#2c3939”<br>
 <br />
 As regras podem ser confusas para alguns, então irei explicar seu funcionamento.<br />
 Para definir uma regra para uma janela, você precisa saber o nome da sua classe, para descobrir isso, podemos usar o pacote xprop:</p>
-<blockquote> xprop | awk ‘/WM_CLASS/{print $4}’</blockquote>
+<pre><code>xprop | awk ‘/WM_CLASS/{print $4}’</code></pre>
 <p>Após rodar o comando, clique na janela que deseja saber a classe.</p>
 <p>Tendo o nome da sua classe, podemos começar a criar nossa regra. Vamos pegar o terminal st de exemplo:</p>
 <blockquote>bspc rule -a st-256color desktop=‘^1’</blockquote>
@@ -121,7 +123,7 @@ st</p>
 <em>super + w</em> = Fecha a janela<br />
 <em>super + 1,2,3,4…</em> = Vai para os outros desktops</p>
 <p>Você encontra todos os atalhos no arquivo sxhdrc.<br />
-    
+<p><br />
 <p>Para mais detalhes:<br>
 <a href="https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies">https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies</a><br>
 <a href="https://wiki.archlinux.org/index.php/Bspwm">https://wiki.archlinux.org/index.php/Bspwm</a><br>
