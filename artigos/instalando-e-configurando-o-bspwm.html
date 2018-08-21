@@ -17,6 +17,8 @@
 <h3>Data: 15/06/2018</h3>
 <hr class="hrblog"/>
 
+<h4>Instalação</h4>
+    
 <p>Bspwm é um gerenciador de janelas do tipo tiling. Na minha opinião, um dos melhores WM.<br>
 Sua configuração é simples, sem nenhuma complicação. Este tutorial assume que você já tem o X11 instalado.</p>
 <p>Iremos utilizar os seguintes pacotes para deixá-lo funcional:</p>
@@ -39,8 +41,31 @@ $ cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
 $ cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
 </code></pre>
 <p>Agora que o bspwm já está instalado, vamos fazer alguns ajustes.</p><br/>
+ 
+<strong>3- Finalizando.</strong><br />
+Alguns WM, incluindo o bspwm, não inicia o cursor corretamente. Para resolver isso, faça com que o xsetroot inicie junto com o bspwm, adicionando a seguinte linha no arquivo bspwmrc:<br />
+<blockquote>
+<p>xsetroot -cursor_name left_ptr &amp;</p>
+</blockquote>
+<p>No arquivo sxhkdrc, temos a seguinte configuração:</p>
+<blockquote>
+<p>super + Return<br>
+urxvt</p>
+</blockquote>
+<p>Como podem ver, super + Return inicia o terminal, que no caso é o urxvt-unicode. Podemos mudar para o terminal que instalamos, o st.</p>
+<blockquote>
+<p>super + Return<br>
+st</p>
+</blockquote>
+<p>E para finalizar, adicione esta linha no arquivo ~/.xinitrc</p>
+<blockquote>
+<p>exec bspwm</p>
+</blockquote>
+<p>Após isso, você já tem seu bspwm pronto para uso.</p><br/>
+ 
+<h4>Configuração</h4>
     
-<p><strong>3- Entendendo como funciona sua config:</strong></p>
+<p><strong>4- Entendendo como funciona sua config:</strong></p>
 <blockquote>
 <p>#!/bin/sh</p>
 <p>sxhkd &<br>
@@ -69,7 +94,7 @@ bspc config presel_feedback_color   “#2c3939”<br>
 <em>(Cores.)</em></p>
 </blockquote><br/>
     
-<strong>4- Regras.</strong><br />
+<strong>5- Regras.</strong><br />
 As regras podem ser confusas para alguns, então irei explicar seu funcionamento.<br />
 Para definir uma regra para uma janela, você precisa saber o nome da sua classe, para descobrir isso, podemos usar o pacote xprop:</p>
 <pre><code>$ xprop | awk '/WM_CLASS/{print $4}'</code></pre>
@@ -82,27 +107,6 @@ Vamos continuar…<br />
 <p>Uma coisa interessante do bspwm, é este “follow=on”, que se você estiver em um desktop diferente do <strong>1</strong>, ela irá te levar até o <strong>1</strong>.<br />
 Já o “focus=on”, irá focar na janela, caso tenha várias janelas abertas no mesmo desktop.</p>
 <p>Também podemos adicionar “center=true”, para um programa com a regra floating abrir no centro da tela.</p><br/>
-    
-<strong>5- Finalizando.</strong><br />
-Alguns WM, incluindo o bspwm, não inicia o cursor corretamente. Para resolver isso, faça com que o xsetroot inicie junto com o bspwm, adicionando a seguinte linha no arquivo bspwmrc:<br />
-<blockquote>
-<p>xsetroot -cursor_name left_ptr &amp;</p>
-</blockquote>
-<p>No arquivo sxhkdrc, temos a seguinte configuração:</p>
-<blockquote>
-<p>super + Return<br>
-urxvt</p>
-</blockquote>
-<p>Como podem ver, super + Return inicia o terminal, que no caso é o urxvt-unicode. Podemos mudar para o terminal que instalamos, o st.</p>
-<blockquote>
-<p>super + Return<br>
-st</p>
-</blockquote>
-<p>E para finalizar, adicione esta linha no arquivo ~/.xinitrc</p>
-<blockquote>
-<p>exec bspwm</p>
-</blockquote>
-<p>Após isso, você já tem seu bspwm pronto para uso.</p><br/>
     
 <strong>6- Perguntas frequentes:</strong><br />
 <strong>P:</strong> Após abrir o bspwm vejo apenas uma tela preta, fiz algo de errado?<br />
